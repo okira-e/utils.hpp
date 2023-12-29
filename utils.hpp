@@ -16,7 +16,7 @@
 #define BOX         std::unique_ptr
 #define BOX_NEW     std::make_unique
 
-// The defer macro definition. 
+// The defer macro definition.
 // Source: https://stackoverflow.com/questions/32432450/what-is-standard-defer-finalizer-implementation-in-c
 #ifndef defer
 struct defer_dummy {};
@@ -36,7 +36,7 @@ template <class F> deferrer<F> operator*(defer_dummy, F f) { return {f}; }
 class Utils {
 public:
     /**
-     * @brief panic prints the message to stderr and exits the program with the given exit code.
+     * @brief panic takes a message and prints it to the standard error.
      * @param msg
      * @param exit_code
      */
@@ -46,7 +46,7 @@ public:
     }
 
     /**
-     * @brief expect prints the message to stderr and exits the program with exit code 1 if the optional is empty.
+     * @brief expect takes an optional value and exists the program with an error message if it is not set.
      * @tparam T
      * @param opt
      * @param msg
