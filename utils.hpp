@@ -95,10 +95,11 @@ public:
      * @param max
      * @return a random float.
      */
-    static auto randomFloat(float min, float max) -> float {
+     template <typename T>
+    static auto randomReal(T min, T max) -> T {
         auto rd = std::random_device{};
         auto mt = std::mt19937(rd());
-        auto dist = std::uniform_real_distribution<float>(min, max);
+        auto dist = std::uniform_real_distribution<T>(min, max);
 
         return dist(mt);
     }
