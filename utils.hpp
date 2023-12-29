@@ -37,7 +37,7 @@ template <class F> deferrer<F> operator*(defer_dummy, F f) { return {f}; }
 class Utils {
 public:
     /**
-     * @brief panic takes a message and prints it to the standard error.
+     * @brief Takes a message and prints it to the standard error.
      * @param msg
      * @param exit_code
      */
@@ -47,7 +47,7 @@ public:
     }
 
     /**
-     * @brief expect takes an optional value and exists the program with an error message if it is not set.
+     * @brief Takes an optional value and exists the program with an error message if it is not set.
      * @tparam T
      * @param opt
      * @param msg
@@ -64,7 +64,7 @@ public:
     }
 
     /**
-     * @brief free_if_set takes an optional raw pointer and deletes it if it is set.
+     * @brief Takes an optional raw pointer and deletes it if it is set.
      * @tparam T
      * @param ptr
      */
@@ -76,7 +76,7 @@ public:
     }
 
     /**
-     * @brief randomInt generates a random integer between min and max.
+     * @brief Generates a random integer between min and max.
      * @param min
      * @param max
      * @return a random integer.
@@ -90,10 +90,10 @@ public:
     }
 
     /**
-     * @brief randomFloat generates a random float between min and max.
+     * @brief Generates a random float between min and max.
      * @param min
      * @param max
-     * @return a random float.
+     * @return a random real number.
      */
      template <typename T>
     static auto randomReal(T min, T max) -> T {
