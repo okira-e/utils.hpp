@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <optional>
+#include <random>
 
 
 //
@@ -72,5 +73,33 @@ public:
         if (ptr.has_value() && ptr.value() != nullptr) {
             delete ptr.value();
         }
+    }
+
+    /**
+     * @brief randomInt generates a random integer between min and max.
+     * @param min
+     * @param max
+     * @return a random integer.
+     */
+    static auto randomInt(int min, int max) -> int {
+        auto rd = std::random_device{};
+        auto mt = std::mt19937(rd());
+        auto dist = std::uniform_int_distribution<int>(min, max);
+
+        return dist(mt);
+    }
+
+    /**
+     * @brief randomFloat generates a random float between min and max.
+     * @param min
+     * @param max
+     * @return a random float.
+     */
+    static auto randomFloat(float min, float max) -> float {
+        auto rd = std::random_device{};
+        auto mt = std::mt19937(rd());
+        auto dist = std::uniform_real_distribution<float>(min, max);
+
+        return dist(mt);
     }
 };
