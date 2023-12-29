@@ -103,4 +103,21 @@ public:
 
         return dist(mt);
     }
+
+    /**
+     * @brief Checks if a value is in a range.
+     * @tparam T
+     * @param a
+     * @param b
+     * @param margin
+     * @return boolean.
+     */
+    template<typename T>
+    static auto isInRange(T a, T b, T margin) -> bool {
+        if (a >= b - margin && a <= b + margin) {
+            return true;
+        }
+
+        return false;
+    }
 };
