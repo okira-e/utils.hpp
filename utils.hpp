@@ -16,6 +16,8 @@
 #define RC_NEW      std::make_shared
 #define BOX         std::unique_ptr
 #define BOX_NEW     std::make_unique
+#define OPT         std::optional
+
 
 // The defer macro definition.
 // Source: https://stackoverflow.com/questions/32432450/what-is-standard-defer-finalizer-implementation-in-c
@@ -54,7 +56,7 @@ public:
      * @return the value of the optional if it is not empty.
      */
     template <typename T>
-    static auto expect(const std::optional<T>& opt, const std::string& msg) -> const T& {
+    static auto unwrap(const std::optional<T>& opt, const std::string& msg) -> const T& {
         if (!opt.has_value()) {
             std::cerr << ("ERROR: " + msg) << std::endl;
             exit(1);
